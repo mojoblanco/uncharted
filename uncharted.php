@@ -15,11 +15,10 @@ if( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action('wp_head', function() {
-	?>
-		<style>
-            .wp_head_example {
-                background-color : #f1f1f1;
-            }
-        </style>
-	<?php
+	$status = get_post_status();
+
+	if ($status != 'publish') {
+		echo '<meta name="robots" content="noindex">';
+		echo '<meta name="googlebot" content="noindex">';
+	}
 }, 1);
