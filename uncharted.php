@@ -18,7 +18,7 @@ add_action('wp_head', function() {
 	$status = get_post_status();
 
 	if ($status != 'publish') {
-		echo '<meta name="robots" content="noindex">';
-		echo '<meta name="googlebot" content="noindex">';
+		echo '<meta name="robots" content="noindex,nofollow">';
+		echo '<meta name="googlebot" content="noindex,nofollow">';
 	}
 }, 1);
